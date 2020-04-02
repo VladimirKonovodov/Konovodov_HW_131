@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Konovodov_HW_131</string>
+    <string name="programTitle">Комплексная система мониторинга здоровья</string>
+    <string name="programAuthor">Powered by Konovodov V.</string>
+    <string name="userName">Имя пользователя</string>
+    <string name="name">Имя</string>
+    <string name="userAge">Возраст пациента</string>
+    <string name="editUserAge">Возраст</string>
+    <string name="saveButton">Сохранить</string>
+    <string name="pressureButton">к давлению</string>
+    <string name="valuesButton">к показателям</string>
+    <string name="back">назад</string>
+</resources>
