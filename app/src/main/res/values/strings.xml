@@ -5,7 +5,7 @@
     <string name="userName">Имя пользователя</string>
     <string name="name">Имя</string>
     <string name="userAge">Возраст пациента</string>
-    <string name="editUserAge">Возраст</string>
+    <string name="editUserAge">000</string>
     <string name="saveButton">Сохранить</string>
     <string name="pressureButton">к давлению</string>
     <string name="valuesButton">к показателям</string>

@@ -49,9 +49,9 @@
 
     <EditText
         android:id="@+id/editTextName"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
+        android:background="#ACE1E8"
         android:ems="10"
         android:inputType="textPersonName"
         android:text="@string/name"
@@ -72,9 +72,9 @@
 
     <EditText
         android:id="@+id/editTextAge"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
+        android:background="#ACE1E8"
         android:ems="10"
         android:includeFontPadding="true"
         android:inputType="number"

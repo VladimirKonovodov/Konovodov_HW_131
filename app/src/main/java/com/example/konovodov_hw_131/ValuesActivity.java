@@ -8,7 +8,7 @@ import android.widget.Button;
 
 public class ValuesActivity extends AppCompatActivity {
     Button buttonValues;
-
+    //float value = new BigDecimal(str).floatValue(); //ввод значения с плавающей точкой
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

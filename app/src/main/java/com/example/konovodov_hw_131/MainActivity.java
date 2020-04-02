@@ -9,11 +9,11 @@ import android.widget.Button;
 import android.widget.EditText;
 
 public class MainActivity extends AppCompatActivity {
-EditText editTextName;
-EditText editTextAge;
-Button buttonSave;
-Button buttonPressure;
-Button buttonValues;
+    EditText editTextName;
+    EditText editTextAge;
+    Button buttonSave;
+    Button buttonPressure;
+    Button buttonValues;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,7 +31,7 @@ Button buttonValues;
             @Override
             public void onClick(View v) {
 
-                Intent intentFirst  = new Intent (MainActivity.this, PressureActivity.class);
+                Intent intentFirst = new Intent(MainActivity.this, PressureActivity.class);
                 startActivity(intentFirst);
             }
         });
@@ -39,10 +39,14 @@ Button buttonValues;
         buttonValues.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intentSecond  = new Intent (MainActivity.this, ValuesActivity.class);
-                //Intent intentFirst  = new Intent (MainActivity.this, PressureActivity.class);
+                Intent intentSecond = new Intent(MainActivity.this, ValuesActivity.class);
                 startActivity(intentSecond);
             }
         });
+    }
+
+
+    public void toPressure() {
+
     }
 }
