@@ -6,35 +6,16 @@
     android:layout_height="match_parent"
     tools:context=".PressureActivity">
 
-    <Button
-        android:id="@+id/backButtonPressure"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/back"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
-
     <TextView
         android:id="@+id/textView8"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
         android:text="Верхнее давление"
         android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <EditText
-        android:id="@+id/editText3"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="#ACE1E8"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Name"
-        android:textAlignment="center"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView8" />
 
     <TextView
         android:id="@+id/textView9"
@@ -42,18 +23,21 @@
         android:layout_height="wrap_content"
         android:text="Нижнее давление"
         android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText3" />
+        app:layout_constraintTop_toBottomOf="@+id/upPressureField" />
 
     <EditText
-        android:id="@+id/editText4"
+        android:id="@+id/downPressureField"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#ACE1E8"
         android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Name"
+        android:hint="введите давление"
+        android:inputType="number"
+        android:maxLength="3"
         android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView9" />
 
@@ -63,18 +47,21 @@
         android:layout_height="wrap_content"
         android:text="Пульс"
         android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText4" />
+        app:layout_constraintTop_toBottomOf="@+id/downPressureField" />
 
     <EditText
-        android:id="@+id/editText5"
+        android:id="@+id/userPulse"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#ACE1E8"
         android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Name"
+        android:hint="введите пульс"
+        android:inputType="number"
+        android:maxLength="3"
         android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView10" />
 
@@ -84,18 +71,20 @@
         android:layout_height="wrap_content"
         android:text="Тахикардия"
         android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText5" />
+        app:layout_constraintTop_toBottomOf="@+id/userPulse" />
 
-    <EditText
-        android:id="@+id/editText6"
+
+    <CheckBox
+        android:id="@+id/tachycardiaCheckBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#ACE1E8"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Name"
+        android:hint="введите давление"
+        android:text="Да/Нет"
         android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView11" />
 
@@ -103,20 +92,57 @@
         android:id="@+id/textView12"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Дата замера"
+        android:text="Дата замера в формате yyyy-MM-dd HH:mm:ss"
         android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText6" />
+        app:layout_constraintTop_toBottomOf="@+id/tachycardiaCheckBox" />
 
     <EditText
-        android:id="@+id/editText7"
+        android:id="@+id/datetimeOfMeasure"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#ACE1E8"
         android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Name"
+        android:hint="дата и время в формате yyyy-MM-dd HH:mm:ss"
+        android:inputType="datetime"
         android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView12" />
+
+    <Button
+        android:id="@+id/buttonSavePressure"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="Сохранить"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/datetimeOfMeasure" />
+
+    <EditText
+        android:id="@+id/upPressureField"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#ACE1E8"
+        android:ems="10"
+        android:hint="введите давление"
+        android:inputType="number"
+        android:maxLength="3"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView8" />
+
+    <Button
+        android:id="@+id/btnBack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/back"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
