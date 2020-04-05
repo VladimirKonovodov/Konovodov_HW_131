@@ -14,6 +14,7 @@ import android.widget.Toast;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -112,18 +113,25 @@ public class PressureActivity extends AppCompatActivity {
                     pressure.put(lastTime, new PressureClass(upPressureValue, downPressureValue, pulseValue, check, lastTime));
                     Log.d(TAG, "значения в коллекцию добавлены!");
                         Toast toast = Toast.makeText(getApplicationContext(),
-                                "Количество данных в коллекции: " + Integer.toString(pressure.size()), Toast.LENGTH_SHORT);
+                                "количество данных в коллекции: " + Integer.toString(pressure.size()), Toast.LENGTH_SHORT);
                         toast.show();
 
 
                     Log.d(TAG, "пользовательские значения введены");
-                    Log.d(TAG, "Количество данных в коллекции: " + Integer.toString(pressure.size()));
+                    Log.d(TAG, "количество данных в коллекции: " + Integer.toString(pressure.size()));
                 }
                 catch (NumberFormatException e) {
                     Log.d(TAG, "возникло исключение при преобразовании введенных значений", e);
                     Toast toast = Toast.makeText(getApplicationContext(),
-                            "Введите допустимые значения!", Toast.LENGTH_SHORT);
+                            "введите допустимые значения!", Toast.LENGTH_SHORT);
                     toast.show();
+                }
+                catch (DateTimeParseException e) {
+                    Log.d(TAG, "возникло исключение при преобразовании введенных значений даты и времени", e);
+                    Toast toast = Toast.makeText(getApplicationContext(),
+                            "введите допустимые значения даты и времени!", Toast.LENGTH_SHORT);
+                    toast.show();
+
                 }
 
                 //upPressureField1.setText(lastTime.toString());
