@@ -10,7 +10,7 @@
         android:id="@+id/buttonValues"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="назад"
+        android:text="@string/backButtonValActivity"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -21,7 +21,7 @@
         android:layout_height="wrap_content"
         android:background="#ACE1E8"
         android:ems="10"
-        android:hint="введите ваш вес, кг в формате: xxx.x"
+        android:hint="@string/enterWeightFormat"
         android:inputType="number|numberDecimal"
         android:maxLength="6"
         android:textAlignment="center"
@@ -34,7 +34,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="48dp"
         android:layout_marginTop="24dp"
-        android:text="Вес, кг"
+        android:text="@string/weight"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -44,7 +44,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="48dp"
         android:layout_marginTop="16dp"
-        android:text="Количество шагов"
+        android:text="@string/stepsNumber"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editText" />
 
@@ -55,7 +55,7 @@
         android:layout_height="wrap_content"
         android:background="#ACE1E8"
         android:ems="10"
-        android:hint="введите количество шагов"
+        android:hint="@string/EnterStepsNumber"
         android:inputType="number"
         android:maxLength="8"
         android:textAlignment="center"
@@ -67,7 +67,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="96dp"
-        android:text="сохранить"
+        android:text="@string/saveValueActButton"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

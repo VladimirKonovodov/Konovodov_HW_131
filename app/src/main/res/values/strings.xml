@@ -10,5 +10,18 @@
     <string name="pressureButton">к давлению</string>
     <string name="valuesButton">к показателям</string>
     <string name="back">назад</string>
+    <string name="enterUserName">введите имя пациента</string>
+    <string name="enterUserAge">введите возраст пациента</string>
+    <string name="enterPressure">введите давление</string>
+    <string name="yesNo">Да/Нет</string>
+    <string name="enterFormatTimeData">Дата и время замера в формате: yyyy-MM-dd HH:mm</string>
+    <string name="DataTimeFormat">дата и время в формате yyyy-MM-dd HH:mm:ss</string>
+    <string name="save">Сохранить</string>
+    <string name="backButtonValActivity">назад</string>
+    <string name="enterWeightFormat">введите ваш вес, кг в формате: xxx.x</string>
+    <string name="weight">Вес, кг</string>
+    <string name="stepsNumber">Количество шагов</string>
+    <string name="EnterStepsNumber">введите количество шагов</string>
+    <string name="saveValueActButton">сохранить</string>
 
 </resources>

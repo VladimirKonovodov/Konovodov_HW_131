@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -31,6 +32,8 @@ public class PressureActivity extends AppCompatActivity {
 
     private Map<LocalDateTime, PressureClass> pressure = new HashMap<>();
 
+    private static final String TAG = "myLogs";
+
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,73 +44,19 @@ public class PressureActivity extends AppCompatActivity {
 
         //Get current date time
         LocalDateTime now = now();
-        //DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
-        //String formatDateTime = now.format(formatter);
-        datetimeOfMeasure.setText(/*formatDateTime.toString()*/now.toString());
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+        String formatDateTime = now.format(formatter);
+        datetimeOfMeasure.setText(formatDateTime.toString()/*now.toString()*/);
 
-        buttonBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
-        });
+        buttonBackClick();
 
-        buttonSavePressure.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                int upPressureValue;
-                int downPressureValue;
-                int pulseValue;
-                datetimeOfMeasure.setText(/*formatDateTime.toString()*/now().toString());
-                try {
-                    upPressureValue = Integer.parseInt(upPressureField1.getText().toString());
-                    downPressureValue = Integer.parseInt(downPressureField.getText().toString());
-                    pulseValue = Integer.parseInt(userPulse.getText().toString());
-
-                    boolean check = tachycardiaCheckBox.isChecked();
-
-                    //DateTimeFormatter formatterTime = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
-                    LocalDateTime lastTime = LocalDateTime.parse(/*"2020-04-03T21:46:01.778"*/datetimeOfMeasure.getText().toString()/*, formatterTime*/);
-                    //LocalDateTime.parse(datetimeOfMeasure.getText().toString(), formatterTime);
-
-                    //добавляем в коллекцию...
-                    pressure.put(lastTime, new PressureClass(upPressureValue, downPressureValue, pulseValue, check, lastTime));
-                    Toast toast = Toast.makeText(getApplicationContext(),
-                            "Количество данных в коллекции: " + Integer.toString(pressure.size()), Toast.LENGTH_SHORT);
-                    toast.show();
-
-                }
-                catch (NumberFormatException e) {
-                    Toast toast = Toast.makeText(getApplicationContext(),
-                            "Введите допустимые значения!", Toast.LENGTH_SHORT);
-                    toast.show();
-                }
-
-
-
-
-                //upPressureField1.setText(lastTime.toString());
-
-                /*
-                Pressure.put ()
-
-
-                EditText upPressureField1;
-                EditText downPressureField;
-                EditText userPulse;
-                CheckBox tachycardiaCheckBox;
-                EditText datetimeOfMeasure;
-
-                 */
-            }
-        });
+        buttonSavePressureClick();
 
 
     }
 
-
     public void init() {
+        Log.d(TAG, "найдем View элементы на экране пользовательских значений");
         upPressureField1 = (EditText) findViewById(R.id.upPressureField);
         downPressureField = (EditText) findViewById(R.id.downPressureField);
         userPulse = (EditText) findViewById(R.id.userPulse);
@@ -117,5 +66,69 @@ public class PressureActivity extends AppCompatActivity {
 
         buttonSavePressure = (Button) findViewById(R.id.buttonSavePressure);
         buttonBack = (Button) findViewById(R.id.btnBack);
+        Log.d(TAG, "элементы View найдены");
+    }
+
+    public void buttonBackClick() {
+        buttonBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.d(TAG, "нажата кнопка возврата на стартовый экран");
+                finish();
+            }
+        });
+    }
+    public void buttonSavePressureClick() {
+        buttonSavePressure.setOnClickListener(new View.OnClickListener() {
+            @RequiresApi(api = Build.VERSION_CODES.O)
+            @Override
+            public void onClick(View v) {
+                Log.d(TAG, "нажата кнопка сохранения пользовательских значений");
+                int upPressureValue;
+                int downPressureValue;
+                int pulseValue;
+                //datetimeOfMeasure.setText(/*formatDateTime.toString()*/now().toString());
+                try {
+                    upPressureValue = Integer.parseInt(upPressureField1.getText().toString());
+                    downPressureValue = Integer.parseInt(downPressureField.getText().toString());
+                    pulseValue = Integer.parseInt(userPulse.getText().toString());
+
+                    boolean check = tachycardiaCheckBox.isChecked();
+                    Log.d(TAG, "задание формата даты и времени");
+                    DateTimeFormatter formatterTime = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+
+                    Log.d(TAG, "попытка считать введенные значения даты и времени");
+                    //LocalDateTime lastTime = LocalDateTime.parse("2020-04-03T21:46:01.778");
+                    //lastTime.format(formatterTime);
+                    //lastTime = LocalDateTime.parse(/*"2020-04-03T21:46:01.778"*/datetimeOfMeasure.getText().toString(), formatterTime);
+                    LocalDateTime lastTime = LocalDateTime.parse(/*"2020-04-03T21:46:01.778"*/datetimeOfMeasure.getText().toString(), formatterTime);
+                    //LocalDateTime.from(formatterTime.ISO_LOCAL_DATE_TIME.parse(datetimeOfMeasure.getText().toString()));
+
+                    //LocalDateTime.parse(datetimeOfMeasure.getText().toString(), formatterTime);
+                    Log.d(TAG, "считывание данных о дате и времени - успешно!");
+
+                    //добавляем в коллекцию...
+                    Log.d(TAG, "добавление в коллекцию введенных значений");
+                    pressure.put(lastTime, new PressureClass(upPressureValue, downPressureValue, pulseValue, check, lastTime));
+                    Log.d(TAG, "значения в коллекцию добавлены!");
+                        Toast toast = Toast.makeText(getApplicationContext(),
+                                "Количество данных в коллекции: " + Integer.toString(pressure.size()), Toast.LENGTH_SHORT);
+                        toast.show();
+
+
+                    Log.d(TAG, "пользовательские значения введены");
+                    Log.d(TAG, "Количество данных в коллекции: " + Integer.toString(pressure.size()));
+                }
+                catch (NumberFormatException e) {
+                    Log.d(TAG, "возникло исключение при преобразовании введенных значений", e);
+                    Toast toast = Toast.makeText(getApplicationContext(),
+                            "Введите допустимые значения!", Toast.LENGTH_SHORT);
+                    toast.show();
+                }
+
+                //upPressureField1.setText(lastTime.toString());
+
+            }
+        });
     }
 }
