@@ -110,15 +110,25 @@ public class PressureActivity extends AppCompatActivity {
 
                     //добавляем в коллекцию...
                     Log.d(TAG, "добавление в коллекцию введенных значений");
+                    int sizeLast = pressure.size();
                     pressure.put(lastTime, new PressureClass(upPressureValue, downPressureValue, pulseValue, check, lastTime));
-                    Log.d(TAG, "значения в коллекцию добавлены!");
+                    if (sizeLast==pressure.size()) {
+                        Log.d(TAG, "значения в коллекцию не добавлены!");
+                        Log.d(TAG, "количество данных в коллекции: " + Integer.toString(pressure.size()));
+                        Toast toast = Toast.makeText(getApplicationContext(),
+                                "введенная дата уже существует в коллекции!\n" + "введите другую дату!", Toast.LENGTH_SHORT);
+                        toast.show();
+                    }
+                    else {
+                        Log.d(TAG, "значения в коллекцию добавлены!");
+                        Log.d(TAG, "количество данных в коллекции: " + Integer.toString(pressure.size()));
                         Toast toast = Toast.makeText(getApplicationContext(),
                                 "количество данных в коллекции: " + Integer.toString(pressure.size()), Toast.LENGTH_SHORT);
                         toast.show();
 
 
-                    Log.d(TAG, "пользовательские значения введены");
-                    Log.d(TAG, "количество данных в коллекции: " + Integer.toString(pressure.size()));
+                    }
+
                 }
                 catch (NumberFormatException e) {
                     Log.d(TAG, "возникло исключение при преобразовании введенных значений", e);
